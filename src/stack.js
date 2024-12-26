@@ -12,22 +12,39 @@ const { NotImplementedError } = require('../extensions/index.js');
  * stack.pop(); // undefined
  *
  */
+
+
 class Stack {
-  push(/* element */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  constructor() {
+    // хранит элементы стека
+    this.stack = [];
   }
 
-  pop() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  // добавляет элемент в стек   
+  push(element) {
+    // добавляем элемент в конец массива
+    this.stack.push(element);
   }
 
+  // возвращает верхний элемент стека без удаления
   peek() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    // если массив пустой возвращаем undefined
+    if (this.stack.length === 0) {
+      return undefined;
+    }  
+    return this.stack[this.stack.length - 1];
+  }
+
+// удаляет и возвращает верхний элемент стека
+  pop() {
+    // если массив пуст, возвращаем undefined
+    if (this.stack.length === 0) {
+      return undefined;
+    }
+    return this.stack.pop();
   }
 }
+
 
 module.exports = {
   Stack
